@@ -1,6 +1,7 @@
 'use strict';
 
 let __API_URL__ = 'http:localhost://8000'
+require('../app/service/auth-service.js')
 
 describe('Auth Service', function(){
 
@@ -11,6 +12,21 @@ describe('Auth Service', function(){
       this.$rootScope = $rootScope;
       this.authService = authService;
       this.$httpBackend = $httpBackend;
+    });
+  });
+
+  describe('authService.logout()', () => {
+    it('should remove token from localStorage', () => {
+      this.authService.logout();
+      this.authService.getToken()
+      .then( token => {
+        expect(token).toEqual(null);
+      })
+
+      // $window.localStorage.removeItem('token');
+      // token = null;
+      // return $q.resolve();
+
     });
   });
 
@@ -30,4 +46,6 @@ describe('Auth Service', function(){
       this.$rootScope.$apply();
     });
   });
+
+
 });
