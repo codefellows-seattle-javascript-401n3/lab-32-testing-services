@@ -12,7 +12,7 @@ module.exports = function(config) {
     concurrency: Infinity,
     frameworks: ['jasmine'],
     reporters: ['mocha'],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     logLevel: config.LOG_INFO,
     preprocessors: {
       'test/**/*-test.js': ['webpack'],

@@ -4,7 +4,7 @@
 //
 //   beforeEach(() => {
 //     angular.mock.module('cfgram');
-//     angular.mock.inject(( $rootScope, authService, galleryService, $window, $httpBackend) => {
+//     angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend) => {
 //       this.$window = $window;
 //       this.$rootScope = $rootScope;
 //       this.authService = authService;
