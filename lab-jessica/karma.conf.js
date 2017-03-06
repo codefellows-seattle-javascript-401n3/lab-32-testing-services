@@ -11,8 +11,8 @@ module.exports = function(config) {
     singleRun: false,
     concurrency: Infinity,
     frameworks: ['jasmine'],
-    reporters: ['progress'],
-    browsers: ['PhantomJS'],
+    reporters: ['mocha'],
+    browsers: ['Chrome'],
     logLevel: config.LOG_INFO,
     preprocessors: {
       'test/**/*-test.js': ['webpack'],
