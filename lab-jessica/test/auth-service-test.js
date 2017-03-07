@@ -47,4 +47,28 @@ describe('Auth Service', function() {
       this.$rootScope.$apply();
     });
   });
+
+  describe('authService.signup()', () => {
+    it('should signup a user', () => {
+      let testUser = {
+        username: 'jessicatest',
+        email: 'jessica@test.com',
+        password: 'testPassword'
+      };
+
+      let headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      };
+
+      this.$httpBackend.expectPOST('http://localhost:8000/api/signup', testUser, headers)
+      .respond(200, {
+        testUser
+      });
+
+      this.authService.signup(testUser);
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    });
+  });
 });
