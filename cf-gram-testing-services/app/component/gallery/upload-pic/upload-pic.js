@@ -7,8 +7,8 @@ module.exports = {
   controller: ['$log', 'picService', UploadPicController],
   controllerAs: 'uploadPicCtrl',
   bindings: {
-    gallery: '<'
-  }
+    gallery: '<',
+  },
 };
 
 function UploadPicController($log, picService) {
@@ -22,6 +22,6 @@ function UploadPicController($log, picService) {
       this.pic.name = null;
       this.pic.desc = null;
       this.pic.file = null;
-    })
-  }
+    });
+  };
 }

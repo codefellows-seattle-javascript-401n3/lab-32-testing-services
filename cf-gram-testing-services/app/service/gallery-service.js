@@ -18,8 +18,8 @@ function galleryService($q, $log, $http, authService) {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
 
       return $http.post(url, gallery, config);

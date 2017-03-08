@@ -15,7 +15,7 @@ function picService($q, $log, $http, Upload, authService) {
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`;
       let headers = {
         Authorization: `Bearer ${token}`,
-        Accept: 'application/json'
+        Accept: 'application/json',
       };
 
       return Upload.upload({
@@ -25,8 +25,8 @@ function picService($q, $log, $http, Upload, authService) {
         data: {
           name: picData.name,
           desc: picData.desc,
-          file: picData.file
-        }
+          file: picData.file,
+        },
       });
     })
     .then( res => {
@@ -40,4 +40,4 @@ function picService($q, $log, $http, Upload, authService) {
   };
 
   return service;
-};
+}
