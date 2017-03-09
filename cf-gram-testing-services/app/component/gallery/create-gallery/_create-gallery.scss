@@ -3,10 +3,12 @@
 .create-gallery {
   input[type="text"] {
     margin-bottom: $gutter-sm;
+    font-family: $font-std;
   }
 
   button {
     float: right;
     padding: 2% 6%;
+    font-family: $font-std;
   }
 }

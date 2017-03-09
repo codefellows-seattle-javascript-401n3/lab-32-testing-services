@@ -1,9 +1,15 @@
 @import "../../../scss/lib/theme/vars";
 
 .upload-pic {
+  button{
+  float: right;
+  margin-top: 4vw;
+  margin-right: 1%;
+  font-size: 1.5vw;
+  font-family: $font-std;
+}
   h3 {
     font-size: 2.5vw;
-    text-decoration: underline;
     margin-bottom: 0;
   }
 
