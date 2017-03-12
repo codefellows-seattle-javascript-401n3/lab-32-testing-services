@@ -1,6 +1,6 @@
 'use strict';
 
-let __API_URL__ = 'http:localhost://8000'
+let __API_URL__ = 'http:localhost://3000'
 require('../app/service/pic-service.js')
 
 describe('Auth Service', function(){
@@ -15,8 +15,9 @@ describe('Auth Service', function(){
     });
   });
 
-  describe('authService.logout()', () => {
-    it('should remove token from localStorage', () => {
+  describe('authService.login()', () => {
+    it('should login a user and should place token in localStorage', () => {
+
       let testUser = {
         username: 'Ron',
         password: 'password'
@@ -24,13 +25,15 @@ describe('Auth Service', function(){
       this.authService.token = null;
       this.$window.localStorage.setItem('token', 'test token');
 
-      this.authService.logout();
-
       this.authService.getToken()
       .then( token => {
-        expect(token).toEqual(null);
+        expect(token).toEqual('test token');
       })
+      .catch( err => {
+        expect(err).toEqual(null);
+      });
 
+      this.$rootScope.$apply();
     });
   });
 

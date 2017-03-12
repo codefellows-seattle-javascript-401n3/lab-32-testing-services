@@ -58,55 +58,31 @@ describe('Gallery Service', function() {
 
 
   describe('galleryService.updateGallery()', () => {
-   it('should update a gallery', () => {
+    it('should update a gallery', () => {
       let galleryData = {
+        _id: '1234',
+        username: 'testuser',
         name: 'example gallery',
         desc: 'example description'
       };
-      let galleryID = 'testid';
+
       let headers = {
-        'Authorization': `Bearer ${this.testToken}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Authorization: 'Bearer test token',
+        Accept: "application/json",
+        'Content-Type': "application/json"
       };
-        this.$httpBackend.expectPUT(`http://localhost:3000/api/gallery/${galleryID}`, galleryData, headers).respond(200);
-        this.galleryService.updateGallery(galleryID);
-        this.$httpBackend.flush();
-        this.$rootScope.$apply();
-    });
+      this.$httpBackend.expectPUT('http://localhost:3000/api/gallery/1234', galleryData, headers).respond(200, {
+        _id: '1234',
+        username: 'testuser',
+        name: galleryData.name,
+        desc: galleryData.desc,
+        pics: []
+      });
+
+      this.galleryService.updateGallery(galleryData._id, galleryData);
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    })
   });
-
-
-
-  // describe('galleryService.updateGallery()', () => {
-  //   it('should update a gallery', () => {
-  //     let galleryData = {
-  //       _id: '1234',
-  //       username: 'testuser',
-  //       name: 'example gallery',
-  //       desc: 'example description'
-  //     };
-  //
-  //     // let galleryData = 'testid';
-  //
-  //     let headers = {
-  //       Authorization: 'Bearer test token',
-  //       Accept: "application/json",
-  //     };
-  //
-  //     this.$httpBackend.expectPUT('http://localhost:3000/api/gallery/galleryData', galleryData, headers).respond(200)
-  //     .respond(200, {
-  //       _id: '1234',
-  //       username: 'testuser',
-  //       name: galleryData.name,
-  //       desc: galleryData.desc,
-  //       pics: []
-  //     });
-  //
-  //     this.galleryService.updateGallery(galleryData);
-  //     this.$httpBackend.flush();
-  //     this.$rootScope.$apply();
-  //   })
-  // });
 
 });

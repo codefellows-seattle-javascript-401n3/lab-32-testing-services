@@ -77,6 +77,7 @@ function galleryService($q, $log, $http, authService) {
 
   service.updateGallery = function(galleryID, galleryData) {
     $log.debug('galleryService.updateGallery()');
+    console.log(typeof galleryID);
 
     return authService.getToken()
     .then( token => {
@@ -85,9 +86,9 @@ function galleryService($q, $log, $http, authService) {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      }
+          'Content-Type': 'application/json',
+        },
+      };
 
       return $http.put(url, galleryData, config);
     })
@@ -97,8 +98,8 @@ function galleryService($q, $log, $http, authService) {
         if (current._id === galleryID) {
           service.galleries[i] = res.data;
           break;
-        };
-      };
+        }
+      }
 
       return res.data;
     })
@@ -116,8 +117,8 @@ function galleryService($q, $log, $http, authService) {
       let url = `${__API_URL__}/api/gallery/${galleryID}`;
       let config = {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
 
       return $http.delete(url, config);
@@ -128,8 +129,8 @@ function galleryService($q, $log, $http, authService) {
         if (current._id === galleryID) {
           service.galleries.splice(i, 1);
           break;
-        };
-      };
+        }
+      }
     })
     .catch( err => {
       $log.error(err.message);
@@ -138,4 +139,4 @@ function galleryService($q, $log, $http, authService) {
   };
 
   return service;
-};
+}
