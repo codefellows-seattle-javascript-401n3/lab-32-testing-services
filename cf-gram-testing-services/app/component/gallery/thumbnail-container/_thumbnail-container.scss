@@ -1,0 +1,19 @@
+@import "../../../scss/lib/theme/vars";
+
+.thumbnail-container {
+  input[type="text"] {
+    margin-bottom: $gutter-sm;
+    font-family: $font-std;
+  }
+
+  margin-top: 7.5%;
+  padding: 2.5%;
+  background-color: $brand-primary * .4;
+  border-radius: $btn-radius * 2;
+
+  h3 {
+    height: 5vw;
+    text-transform: capitalize;
+  }
+
+}
