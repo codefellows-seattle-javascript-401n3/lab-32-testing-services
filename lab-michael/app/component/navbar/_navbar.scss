@@ -1,20 +1,9 @@
-navbar .navbar {
-  // background-color: gray;
+.navbar {
   display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  img {
+    width: 5vw;
+    height: 6vw;
   }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    width: 80%;
-    height: 2em;
-  }
-// navbar .navSpecs {
-//   background-color: black;
-//   height: 100px;
-//   width: 100px;
-// }
+}
