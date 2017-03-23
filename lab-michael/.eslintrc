@@ -20,7 +20,10 @@
     "beforeEach": false,
     "afterEach": false,
     "before": false,
-    "after": false
+    "after": false,
+    "angular": false,
+    "module": false,
+    "inject": false
   },
   "ecmaFeatures": {
     "modules": true,

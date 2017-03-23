@@ -11,17 +11,18 @@ module.exports = function(config) {
     singleRun: false,
     concurrency: Infinity,
     frameworks: ['jasmine'],
-    reporters: ['progress'],
-    browsers: ['PhantomJS'],
+    reporters: ['mocha'],
+    browsers: ['Chrome'],
     logLevel: config.LOG_INFO,
     preprocessors: {
+      '!(node_modules/)/**/*.js': ['eslint'],
       'test/**/*-test.js': ['webpack'],
       'app/index.js': ['webpack'],
     },
     files: [
-      'app/index.js',
+      'app/index.js',   // injection of angular
       'test/**/*-test.js',
-      'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-mocks/angular-mocks.js',  // injection of angular-mocks
     ],
   });
 };
